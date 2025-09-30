@@ -165,7 +165,45 @@ export default function TextForm(props) {
                                         </button>
                                     </div>
                                 </div>
-                                <textarea className="form-control" id="myBox" rows="8" value={text} onChange={handleChange} style={textareaStyle}></textarea>
+                                <div style={{position: 'relative'}}>
+                                    <textarea className="form-control" id="myBox" rows="8" value={text} onChange={handleChange} style={textareaStyle}></textarea>
+                                    <button
+                                        type="button"
+                                        onClick={isSpeaking ? handleStop : handleSpeak}
+                                        style={{
+                                            position: 'absolute',
+                                            right: '10px',
+                                            bottom: '10px',
+                                            background: isSpeaking
+                                                ? 'linear-gradient(135deg, #ff6b6b 0%, #c92a2a 100%)'
+                                                : 'linear-gradient(135deg, #aab6fe 0%, #6c63ff 100%)',
+                                            border: 'none',
+                                            borderRadius: '50%',
+                                            width: '38px',
+                                            height: '38px',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            boxShadow: '0 4px 16px #0001',
+                                            cursor: 'pointer',
+                                            zIndex: 2,
+                                            transition: 'background 0.2s, box-shadow 0.2s'
+                                        }}
+                                        title={isSpeaking ? "Stop speaking" : "Speak text"}
+                                    >
+                                        {isSpeaking ? (
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" viewBox="0 0 24 24">
+                                                <rect x="5" y="5" width="14" height="14" rx="3" fill="#fff"/>
+                                                <text x="12" y="16" textAnchor="middle" fontSize="12" fontWeight="bold" fill="#c92a2a">■</text>
+                                            </svg>
+                                        ) : (
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                                <path d="M3 9v6h4l5 5V4L7 9H3z" fill="#212529"/>
+                                                <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03z" fill="#212529"/>
+                                            </svg>
+                                        )}
+                                    </button>
+                                </div>
                             </div>
                             <div className="d-flex flex-wrap gap-2 mb-2">
                                 {/* Modern trending button styles and all text utility buttons */}
@@ -202,22 +240,7 @@ export default function TextForm(props) {
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8zm2.354-3.646a.5.5 0 1 0-.708.708L4.793 6.5H2.5a.5.5 0 0 0 0 1h2.293l-1.147 1.146a.5.5 0 0 0 .708.708l2-2a.5.5 0 0 0 0-.708l-2-2z"/></svg>
                                     Remove Spaces
                                 </button>
-                                {isSpeaking ? (
-                                    <button className="trendy-btn trendy-danger" onClick={handleStop} title="Stop">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-                                            <rect width="16" height="16" rx="3"/>
-                                            <text x="8" y="12" textAnchor="middle" fontSize="10" fontWeight="bold" fill="white">■</text>
-                                        </svg>
-                                        Stop
-                                    </button>
-                                ) : (
-                                    <button className="trendy-btn trendy-info" onClick={handleSpeak} title="Speak">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-                                            <path d="M9 4.5v7a.5.5 0 0 1-.757.429L5.825 10H3.5A.5.5 0 0 1 3 9.5v-3a.5.5 0 0 1 .5-.5h2.325l2.418-1.929A.5.5 0 0 1 9 4.5zm3.536-.036a.5.5 0 0 1 .707.707A6.978 6.978 0 0 1 14 8c0 1.306-.417 2.512-1.121 3.536a.5.5 0 1 1-.707-.707A5.978 5.978 0 0 0 13 8c0-1.07-.336-2.063-.879-2.929a.5.5 0 0 1 .415-.607zm-2.122 2.122a.5.5 0 0 1 .707.707A3.978 3.978 0 0 1 12 8c0 .795-.247 1.53-.664 2.121a.5.5 0 1 1-.707-.707A2.978 2.978 0 0 0 11 8c0-.53-.158-1.022-.428-1.414a.5.5 0 0 1 .842-.5z"/>
-                                        </svg>
-                                        Speak
-                                    </button>
-                                )}
+                                {/* Speak/Stop button moved inside textarea, removed from here */}
                                 <button className="trendy-btn trendy-danger" onClick={handleReset} title="Reset">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M2.5 2.5a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-11zm1 .5v10h9V3h-9zm2.354 2.646a.5.5 0 1 1 .708.708L8.207 8l2.147 2.146a.5.5 0 0 1-.708.708l-2.5-2.5a.5.5 0 0 1 0-.708l2.5-2.5z"/></svg>
                                     Reset
