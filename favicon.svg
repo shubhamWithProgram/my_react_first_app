@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="16" fill="#6c63ff"/>
+  <text x="32" y="42" text-anchor="middle" font-size="32" font-family="Segoe UI, Arial, sans-serif" font-weight="bold" fill="#fff">TN</text>
+  <circle cx="52" cy="16" r="6" fill="#FFD600" stroke="#fff" stroke-width="2"/>
+  <g stroke="#FFD600" stroke-width="2">
+    <line x1="52" y1="7" x2="52" y2="2"/>
+    <line x1="52" y1="25" x2="52" y2="30"/>
+    <line x1="43" y1="16" x2="38" y2="16"/>
+    <line x1="61" y1="16" x2="66" y2="16"/>
+  </g>
+</svg>
