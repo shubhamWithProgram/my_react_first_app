@@ -64,12 +64,15 @@ function App() {
       <footer className="app-footer" style={{
         width: '100%',
         textAlign: 'center',
+        // padding: '1.5rem 0',
         padding: '1.5rem 0 1rem 0',
         fontSize: '1.1rem',
         color: darkMode ? '#e0e0e0' : '#222',
         background: darkMode ? '#181a1b' : '#f8f9fa',
         borderTop: darkMode ? '1px solid #23272f' : '1px solid #e3e3e3',
         letterSpacing: '0.01em',
+        position: 'fixed',
+        bottom: 0,
         marginTop: 'auto'
       }}>
         Copyright © 2025 All Rights Reserved by TextNova | Design by <span style={{color: '#6c63ff', fontWeight: 500}}>Shubham Joshi</span>

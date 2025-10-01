@@ -1,11 +1,14 @@
+/*************  ✨ Windsurf Command 🌟  *************/
 import React, { useState } from 'react';
 
 export default function TodoList({ darkMode = false }) {
     const [tasks, setTasks] = useState([]);
     const [newTask, setNewTask] = useState('');
+    const [selectAll, setSelectAll] = useState(false);
 
     const addTask = () => {
         if (newTask.trim()) {
+            setTasks([...tasks, { text: newTask, completed: false, selected: false }]);
             setTasks([...tasks, { text: newTask, completed: false }]);
             setNewTask('');
         }
@@ -21,6 +24,18 @@ export default function TodoList({ darkMode = false }) {
     const deleteTask = (index) => {
         const updatedTasks = tasks.filter((_, i) => i !== index);
         setTasks(updatedTasks);
+    };
+
+    const selectAllTasks = () => {
+        const updatedTasks = tasks.map(task => ({ ...task, selected: !selectAll }));
+        setTasks(updatedTasks);
+        setSelectAll(!selectAll);
+    };
+
+    const deleteAllSelectedTasks = () => {
+        const updatedTasks = tasks.filter(task => !task.selected);
+        setTasks(updatedTasks);
+        setSelectAll(false);
     };
 
     return (
@@ -64,6 +79,36 @@ export default function TodoList({ darkMode = false }) {
                 >
                     Add
                 </button>
+                <button
+                    onClick={selectAllTasks}
+                    style={{
+                        padding: '0.5rem 1rem',
+                        background: selectAll ? '#dc3545' : '#6c63ff',
+                        color: '#fff',
+                        border: 'none',
+                        borderRadius: '0.5rem',
+                        cursor: 'pointer',
+                        fontSize: '1rem'
+                    }}
+                >
+                    {selectAll ? 'Deselect All' : 'Select All'}
+                </button>
+                {selectAll && tasks.some(task => task.selected) && (
+                    <button
+                        onClick={deleteAllSelectedTasks}
+                        style={{
+                            padding: '0.5rem 1rem',
+                            background: '#dc3545',
+                            color: '#fff',
+                            border: 'none',
+                            borderRadius: '0.5rem',
+                            cursor: 'pointer',
+                            fontSize: '1rem'
+                        }}
+                    >
+                        Delete All Selected
+                    </button>
+                )}
             </div>
             <ul style={{ listStyle: 'none', padding: 0 }}>
                 {tasks.map((task, index) => (

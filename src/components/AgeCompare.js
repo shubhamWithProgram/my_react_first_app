@@ -39,7 +39,7 @@ export default function AgeCompare(props) {
   };
 
   return (
-    <div className="card shadow-sm p-4" style={{ maxWidth: 520, margin: '2.5rem auto', borderRadius: 18, background: props.darkMode ? '#23272b' : '#f8f9fc', boxShadow: props.darkMode ? '0 4px 24px #181a1b55' : '0 4px 24px #e3e6ee55' }}>
+    <div className="card shadow-sm p-4" style={{ maxWidth: 520, margin: '0.1rem auto', borderRadius: 18, background: props.darkMode ? '#23272b' : '#f8f9fc', boxShadow: props.darkMode ? '0 4px 24px #181a1b55' : '0 4px 24px #e3e6ee55' }}>
       <h3 className="mb-4 text-primary fw-bold" style={{letterSpacing: '0.5px'}}>Age Compare</h3>
       <form autoComplete="off" onSubmit={e => {e.preventDefault(); handleCompare();}}>
         <div className="mb-4">
