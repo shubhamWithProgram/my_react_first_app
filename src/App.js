@@ -1,12 +1,13 @@
-
 import './App.css';
-
-import About from './components/About';
+import { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Alert from './components/Alert';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextFrom';
-import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import AgeCompare from './components/AgeCompare';
+import About from './components/About';
+import TodoList from './components/TodoList';
+// import QRCodeGenerator from './components/QRCodeGenerator';
 
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
   });
 
   const [alert, setAlert] = useState(null);
+  // About modal state
+  const [showAboutModal, setShowAboutModal] = useState(true);
   const showAlert = (message, type) => {
     setAlert({
       message: message,
@@ -44,15 +47,19 @@ function App() {
 
   return (
     <div className={darkMode ? 'app-dark' : 'app-light'} style={{ minHeight: '100vh' }}>
-  <Navbar title="TextNova" aboutText="About" darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      {/* About modal component */}
+      <About darkMode={darkMode} show={showAboutModal} onClose={() => setShowAboutModal(false)} />
+      {/* Main app content always visible */}
+      <Navbar title="TextNova" aboutText="About" darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <Alert alert={alert} type={darkMode ? 'dark' : 'light'} />
       <div className="container my-3">
         <Routes>
-          <Route path="/about" element={<About darkMode={darkMode} toggleDarkMode={toggleDarkMode} />} />
           <Route path="/" element={<TextForm heading="Enter the text to analyze below" darkMode={darkMode} showAlert={showAlert} />} />
+          <Route path="/age-compare" element={<AgeCompare darkMode={darkMode} />} />
+          <Route path="/todo-list" element={<TodoList darkMode={darkMode} />} />
+          {/* <Route path="/qr-code-generator" element={<QRCodeGenerator darkMode={darkMode} />} /> */}
         </Routes>
       </div>
-
       {/* Footer */}
       <footer className="app-footer" style={{
         width: '100%',
@@ -65,7 +72,7 @@ function App() {
         letterSpacing: '0.01em',
         marginTop: 'auto'
       }}>
-  Copyright © 2025 All Rights Reserved by TextNova | Design by <span style={{color: '#6c63ff', fontWeight: 500}}>Shubham Joshi</span>
+        Copyright © 2025 All Rights Reserved by TextNova | Design by <span style={{color: '#6c63ff', fontWeight: 500}}>Shubham Joshi</span>
       </footer>
     </div>
   );

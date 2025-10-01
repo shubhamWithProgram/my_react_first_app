@@ -1,10 +1,22 @@
+.app-dark .form-control {
+  background: #23272b !important;
+  color: #f8f9fa !important;
+  border: 1.5px solid #44485a !important;
+}
+.app-dark .form-control::placeholder {
+  color: #bfc8e6 !important;
+  opacity: 0.8;
+}
+.app-dark label {
+  color: #f8f9fa !important;
+}
 /* Theme toggle button styles */
 .theme-toggle-btn {
   position: relative;
-  background: #f1f1f1;
+  background: #f6f7fb;
   border-radius: 20px;
   transition: background 0.3s;
-  box-shadow: 0 2px 8px #0001;
+  box-shadow: 0 2px 12px #dbe2ef;
 }
 .theme-toggle-btn.dark {
   background: #23272f;
@@ -34,10 +46,83 @@
 }
 
 .app-light {
-  background-color: #fff !important;
-  color: #212529 !important;
+  background-color: #f6f7fb !important;
+  color: #23263a !important;
   min-height: 100vh;
   transition: background-color 0.3s, color 0.3s;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.app-light .container, .app-light .container-fluid {
+  padding-top: 2.5rem !important;
+  padding-bottom: 2.5rem !important;
+}
+.app-light .card {
+  background: #fff !important;
+  border: 1.5px solid #e3e6ee !important;
+  box-shadow: 0 4px 24px #e3e6ee55 !important;
+  color: #23263a !important;
+  border-radius: 18px !important;
+  padding: 1.5rem 1.2rem !important;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+.app-light .card:hover {
+  box-shadow: 0 8px 32px #dbe2ef88 !important;
+  border-color: #bfc8e6 !important;
+}
+.app-light .btn, .app-light .form-control {
+  border-radius: 10px !important;
+  box-shadow: 0 2px 8px #e3e6ee22 !important;
+  border: 1.5px solid #e3e6ee !important;
+  font-size: 1rem !important;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+.app-light .btn:hover, .app-light .form-control:focus {
+  box-shadow: 0 4px 16px #bfc8e644 !important;
+  border-color: #bfc8e6 !important;
+}
+.app-light .form-control {
+  background: #f8f9fc !important;
+  color: #23263a !important;
+}
+.app-light .navbar {
+  background: #f6f7fb !important;
+  border-bottom: 1.5px solid #e3e6ee !important;
+  border-radius: 0 0 18px 18px !important;
+}
+.app-light .app-footer {
+  background: #f6f7fb !important;
+  color: #23263a !important;
+  border-top: 1.5px solid #e3e6ee !important;
+  font-size: 1.08rem;
+  letter-spacing: 0.01em;
+}
+/* } */
+
+/* Card and button improvements for light mode */
+.app-light .card {
+  background: #fff !important;
+  border: 1.5px solid #e3e6ee !important;
+  box-shadow: 0 4px 24px #e3e6ee55 !important;
+  color: #23263a !important;
+}
+.app-light .btn, .app-light .form-control {
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px #e3e6ee22 !important;
+  border: 1.5px solid #e3e6ee !important;
+}
+.app-light .form-control {
+  background: #f8f9fc !important;
+  color: #23263a !important;
+}
+.app-light .navbar {
+  background: #f6f7fb !important;
+  border-bottom: 1.5px solid #e3e6ee !important;
+}
+.app-light .app-footer {
+  background: #f6f7fb !important;
+  color: #23263a !important;
+  border-top: 1.5px solid #e3e6ee !important;
 }
 
 .App-logo {

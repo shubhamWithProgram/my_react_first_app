@@ -27,10 +27,13 @@ export default function Navbar(props) {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link className="nav-link active fw-semibold" aria-current="page" to="/">Home</Link>
+                            <Link className="nav-link active fw-semibold" aria-current="page" to="/">Text Analyzer</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link fw-semibold" to="/about">{props.aboutText}</Link>
+                            <Link className="nav-link fw-semibold" to="/age-compare">Age Compare</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link fw-semibold" to="/todo-list">Todo List</Link>
                         </li>
                     </ul>
                     <div className="d-flex align-items-center gap-2 ms-lg-3 mt-2 mt-lg-0">
@@ -91,7 +94,7 @@ Navbar.propTypes ={
 
 Navbar.defaultProps = {
   title: 'Set title here',
-  aboutText: 'About Txt',
+    // aboutText removed - Navbar no longer shows an About link
   darkMode: false,
   toggleDarkMode: () => {}
 }
